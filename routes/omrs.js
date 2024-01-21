@@ -18,10 +18,12 @@ router.post('/create-movie', async function (req, res, next) {
     res.send(response);
 });
 
+//TODO error handling
 router.post('/rank/:movieId', async function (req, res, next) {
     const { profileUri, raiting } = req.body;
     const movieId = req.params.movieId;
-    // TODO add profile if not exists, otherwise use existing node
+    // TODO check if profile exists using profileUri
+    // TODO if not add Profile node
     await addProfile(session,profileUri);
     const response = await addRating(session,movieId,profileUri, raiting);
     debug(response);

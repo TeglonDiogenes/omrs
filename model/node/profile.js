@@ -1,5 +1,7 @@
 const { debug, getProfileId, isNumber } = require("../../lib");
 
+//TODO add function that checks if profile exist
+
 const addProfile = async (session, profileUri) => {
     let profileId = getProfileId(profileUri);
     if (!isNumber(profileId)) {

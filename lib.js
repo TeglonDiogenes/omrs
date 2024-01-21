@@ -6,6 +6,12 @@ const initSession = (uri, user, password) => {
   const session = driver.session()
   return { driver, session };
 }
+const calculateMovieRating = (session, movieId) => {
+  //TODO implement calculateMovieRating
+}
+const findSimilarProfiles = (session, profileId) => {
+  //TODO implement findSimilarProfiles
+}
 
 const getProfileId = (profileUri) => {
   return parseInt(profileUri.split("/").pop().split("?")[0]);
