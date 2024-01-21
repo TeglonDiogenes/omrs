@@ -4,20 +4,25 @@ const { debug } = require("../../lib");
 
 const addMovie = async (session, metaData) => {
     const {title} = metaData;
-    let joinedTitle;
+    let joinedTitle, result;
     if (title) {
         joinedTitle = title.split(" ").join("")
     } else {
         throw new Error("In order to add movie you need to define it's title at least.")
     }
     try {
-        const result = await session.run(
+         result = await session.run(
           `CREATE (${joinedTitle}:Movie ${JSON.stringify(metaData)})`
         )
-      
         debug('add Movie result:', result)
+        const singleRecord = result.records[0]
+        const node = singleRecord.get(0)
+      
+        return node.properties.id;
       } finally {
+
         await session.close()
+        // TODO return movie id
       }
 }
 

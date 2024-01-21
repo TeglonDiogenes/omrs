@@ -1,8 +1,7 @@
 const neo4j =  require('neo4j-driver');
-const dotenv = require('dotenv');
+
 const debug = require('debug')('omrs');
 
-dotenv.config();
 
 const initSession = (uri, user, password) => {
   const driver = neo4j.driver(uri, neo4j.auth.basic(user, password))
