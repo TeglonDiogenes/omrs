@@ -1,5 +1,6 @@
 const neo4j =  require('neo4j-driver');
 const dotenv = require('dotenv');
+const debug = require('debug')('omrs');
 
 dotenv.config();
 
@@ -21,3 +22,5 @@ const rateMovie = (profileUrl, movie, newRating) => ({
   rating: ((movie.rating * movie.numberOfRatings) + newRating) / (movie.numberOfRatings + 1),
   numberOfRatings: movie.numberOfRatings + 1,
 });
+
+module.exports = {debug}

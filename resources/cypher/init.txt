@@ -36,5 +36,5 @@ CREATE (Profile1)-[:RATED {rating:[3]}]->(AFewGoodMen),
 (Profile4)-[:RATED {rating:[1]}]->(AFewGoodMen)
 
 CREATE (TopGun:Movie {title:"Top Gun", released:1986, tagline:'I feel the need, the need for speed.'})
-CREATE(Profile3)-[:RATED {rating:[5]}]->(TopGun),
+CREATE (Profile3)-[:RATED {rating:[5]}]->(TopGun),
 (Profile4)-[:RATED {rating:[1]}]->(TopGun)
