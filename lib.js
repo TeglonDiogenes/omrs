@@ -23,10 +23,14 @@ const rateMovie = (profileUrl, movie, newRating) => ({
   numberOfRatings: movie.numberOfRatings + 1,
 });
 
+const addMovieRating = (profileUrl, movieTitle, rating) => ({
+
+});
+
 const getProfileId = (profileUri) => {
   return parseInt(profileUri.split("/").pop().split("?")[0]);
 }
 function isNumber(value) {
   return typeof value === 'number' && !Number.isNaN(value);
 }
-module.exports = {debug, getProfileId, isNumber}
+module.exports = {debug, getProfileId, isNumber,addMovieRating}
