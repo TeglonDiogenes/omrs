@@ -3,7 +3,7 @@ var router = express.Router();
 const { debug, addMovie, initSession } = require("../lib");
 const { addMovie } = require("../model/node/movie");
 const { addProfile } = require("../model/node/profile");
-const { addProfile } = require("../model/edge/rated");
+const { addRating } = require("../model/edge/rated");
 const dotenv = require('dotenv');
 dotenv.config();
 const { URI, USER, PASSWORD } = process.env;
@@ -18,10 +18,15 @@ router.post('/create-movie', async function (req, res, next) {
     res.send(response);
 });
 
-router.post('/rank/:movieId', function (req, res, next) {
-    const { profileUri, rank } = req.body;
+router.post('/rank/:movieId', async function (req, res, next) {
+    const { profileUri, raiting } = req.body;
     const movieId = req.params.movieId;
-    // create 
+    // TODO add profile if not exists, otherwise use existing node
+    await addProfile(session,profileUri);
+    const response = await addRating(session,movieId,profileUri, raiting);
+    debug(response);
+    // TODO should i close the session here ?
+    res.send(response);
 });
 
 router.get('/suggest-movies/:facebookProfileUri', function (req, res, next) {

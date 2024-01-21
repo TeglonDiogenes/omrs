@@ -1,7 +1,6 @@
 const { debug } = require("../../lib");
 
 const addRating = async (session, movieId, profileUri, rating) => {
-
     try {
         result = await session.run(
             `MATCH (p:Profile {profileUri: $profileUri})
