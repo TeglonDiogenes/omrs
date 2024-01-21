@@ -1,0 +1,40 @@
+CREATE (TheMatrix:Movie {title:'The Matrix', released:1999, tagline:'Welcome to the Real World'})
+CREATE (Profile1:Profile {name:'first', born:1964})
+CREATE (Profile2:Profile {name:'Carrie-Anne Moss', born:1967})
+CREATE (Profile3:Profile {name:'Laurence Fishburne', born:1961})
+CREATE (Profile4:Profile {name:'Michael'})
+CREATE
+(Profile1)-[:RATED {rating:[5]}]->(TheMatrix),
+(Profile2)-[:RATED {rating:[5]}]->(TheMatrix),
+(Profile3)-[:RATED {rating:[5]}]->(TheMatrix),
+(Profile4)-[:RATED {rating:[1]}]->(TheMatrix)
+
+
+CREATE (TheMatrixReloaded:Movie {title:'The Matrix Reloaded', released:2003, tagline:'Free your mind'})
+CREATE
+(Profile1)-[:RATED {rating:[4]}]->(TheMatrixReloaded),
+(Profile2)-[:RATED {rating:[4]}]->(TheMatrixReloaded),
+(Profile3)-[:RATED {rating:[4]}]->(TheMatrixReloaded),
+(Profile4)-[:RATED {rating:[1]}]->(TheMatrixReloaded)
+
+CREATE (TheMatrixRevolutions:Movie {title:'The Matrix Revolutions', released:2003, tagline:'Everything that has a beginning has an end'})
+CREATE
+(Profile1)-[:RATED {rating:[4]}]->(TheMatrixRevolutions),
+(Profile2)-[:RATED {rating:[3]}]->(TheMatrixRevolutions),
+(Profile4)-[:RATED {rating:[1]}]->(TheMatrixRevolutions)
+
+CREATE (TheDevilsAdvocate:Movie {title:"The Devil's Advocate", released:1997, tagline:'Evil has its winning ways'})
+CREATE (Profile1)-[:RATED {rating:[4]}]->(TheDevilsAdvocate),
+(Profile2)-[:RATED {rating:[4]}]->(TheDevilsAdvocate),
+(Profile3)-[:RATED {rating:[4]}]->(TheDevilsAdvocate),
+(Profile4)-[:RATED {rating:[1]}]->(TheDevilsAdvocate)
+
+CREATE (AFewGoodMen:Movie {title:"A Few Good Men", released:1992, tagline:"In the heart of the nation's capital, in a courthouse of the U.S. government, one man will stop at nothing to keep his honor, and one will stop at nothing to find the truth."})
+CREATE (Profile1)-[:RATED {rating:[3]}]->(AFewGoodMen),
+(Profile2)-[:RATED {rating:[4]}]->(AFewGoodMen),
+(Profile3)-[:RATED {rating:[5]}]->(AFewGoodMen),
+(Profile4)-[:RATED {rating:[1]}]->(AFewGoodMen)
+
+CREATE (TopGun:Movie {title:"Top Gun", released:1986, tagline:'I feel the need, the need for speed.'})
+CREATE(Profile3)-[:RATED {rating:[5]}]->(TopGun),
+(Profile4)-[:RATED {rating:[1]}]->(TopGun)
