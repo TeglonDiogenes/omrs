@@ -22,7 +22,6 @@ const addMovie = async (session, metaData) => {
       } finally {
 
         await session.close()
-        // TODO return movie id
       }
 }
 
