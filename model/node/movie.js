@@ -25,4 +25,15 @@ const addMovie = async (session, metaData) => {
       }
 }
 
-module.exports = {addMovie}
+const matchRecomendedMovies = async (session, profileAutoId) => {
+  const result = await session.run(
+      `MATCH (p1:Profile)-[:RATED]->(m:Movie)<-[:RATED]-(p2:Profile)
+       WHERE ID(p1) = $profileAutoId
+       WITH p1, COLLECT(DISTINCT m.title) AS commonMovies
+       RETURN commonMovies`,{profileAutoId}
+  );
+
+  debug('matched recomended movies:', result);
+  return result;
+}
+module.exports = {addMovie,matchRecomendedMovies}
