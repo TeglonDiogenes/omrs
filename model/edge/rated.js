@@ -1,5 +1,27 @@
 const { debug } = require("../../lib");
 
+const getRatingEdges = async () => {
+    edges = await session.run(
+        `MATCH (m:Movie)
+         WHERE ID(m) = 75
+         MATCH (p:Profile)-[r:RATED]->(m)
+         RETURN r`,
+        { movieId }
+    )
+    debug('retrun Ratings edges:', edges)
+    return edges;
+}
+
+const calculateAverageRating = (ratings) => {
+    if (!Array.isArray(ratings) || ratings.length === 0) {
+      return null;
+    }
+    const totalRating = ratings.reduce((sum, rating) => sum + rating, 0);
+    const averageRating = totalRating / ratings.length;
+    const roundedAverageRating = Math.round(averageRating * 100) / 100;
+    return roundedAverageRating;
+}
+
 const addRating = async (session, movieId, profileUri, rating) => {
     try {
         result = await session.run(
@@ -19,4 +41,4 @@ const addRating = async (session, movieId, profileUri, rating) => {
     }
 }
 
-module.exports = { addRating };
+module.exports = { addRating, getRatingEdges, calculateAverageRating};
