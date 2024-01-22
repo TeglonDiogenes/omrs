@@ -8,7 +8,11 @@ CREATE
 (PROFILE_100004624831661)-[:RATED {rating:[5]}]->(TheMatrix),
 (PROFILE_100004624831662)-[:RATED {rating:[5]}]->(TheMatrix),
 (PROFILE_100004624831663)-[:RATED {rating:[1]}]->(TheMatrix)
-
+CREATE
+(TheMatrix)-[:RATED_BY {rating:[5]}]->(PROFILE_100004624831660),
+(TheMatrix)-[:RATED_BY {rating:[5]}]->(PROFILE_100004624831661),
+(TheMatrix)-[:RATED_BY {rating:[5]}]->(PROFILE_100004624831662),
+(TheMatrix)-[:RATED_BY {rating:[1]}]->(PROFILE_100004624831663)
 
 CREATE (TheMatrixReloaded:Movie {title:'The Matrix Reloaded', released:2003, tagline:'Free your mind'})
 CREATE
@@ -16,28 +20,53 @@ CREATE
 (PROFILE_100004624831661)-[:RATED {rating:[4]}]->(TheMatrixReloaded),
 (PROFILE_100004624831662)-[:RATED {rating:[4]}]->(TheMatrixReloaded),
 (PROFILE_100004624831663)-[:RATED {rating:[1]}]->(TheMatrixReloaded)
+CREATE
+(TheMatrixReloaded)-[:RATED_BY {rating:[4]}]->(PROFILE_100004624831660),
+(TheMatrixReloaded)-[:RATED_BY {rating:[4]}]->(PROFILE_100004624831661),
+(TheMatrixReloaded)-[:RATED_BY {rating:[4]}]->(PROFILE_100004624831662),
+(TheMatrixReloaded)-[:RATED_BY {rating:[1]}]->(PROFILE_100004624831663)
 
 CREATE (TheMatrixRevolutions:Movie {title:'The Matrix Revolutions', released:2003, tagline:'Everything that has a beginning has an end'})
 CREATE
 (PROFILE_100004624831660)-[:RATED {rating:[4]}]->(TheMatrixRevolutions),
 (PROFILE_100004624831661)-[:RATED {rating:[3]}]->(TheMatrixRevolutions),
 (PROFILE_100004624831663)-[:RATED {rating:[1]}]->(TheMatrixRevolutions)
+CREATE
+(TheMatrixRevolutions)-[:RATED_BY {rating:[4]}]->(PROFILE_100004624831660),
+(TheMatrixRevolutions)-[:RATED_BY {rating:[3]}]->(PROFILE_100004624831661),
+(TheMatrixRevolutions)-[:RATED_BY {rating:[1]}]->(PROFILE_100004624831663)
 
 CREATE (TheDevilsAdvocate:Movie {title:"The Devil's Advocate", released:1997, tagline:'Evil has its winning ways'})
-CREATE (PROFILE_100004624831660)-[:RATED {rating:[4]}]->(TheDevilsAdvocate),
+CREATE 
+(PROFILE_100004624831660)-[:RATED {rating:[4]}]->(TheDevilsAdvocate),
 (PROFILE_100004624831661)-[:RATED {rating:[4]}]->(TheDevilsAdvocate),
 (PROFILE_100004624831662)-[:RATED {rating:[4]}]->(TheDevilsAdvocate),
 (PROFILE_100004624831663)-[:RATED {rating:[1]}]->(TheDevilsAdvocate)
+CREATE 
+(TheDevilsAdvocate)-[:RATED_BY {rating:[4]}]->(PROFILE_100004624831660),
+(TheDevilsAdvocate)-[:RATED_BY {rating:[4]}]->(PROFILE_100004624831661),
+(TheDevilsAdvocate)-[:RATED_BY {rating:[4]}]->(PROFILE_100004624831662),
+(TheDevilsAdvocate)-[:RATED_BY {rating:[1]}]->(PROFILE_100004624831663)
 
 CREATE (AFewGoodMen:Movie {title:"A Few Good Men", released:1992, tagline:"In the heart of the nation's capital, in a courthouse of the U.S. government, one man will stop at nothing to keep his honor, and one will stop at nothing to find the truth."})
-CREATE (PROFILE_100004624831660)-[:RATED {rating:[3]}]->(AFewGoodMen),
+CREATE 
+(PROFILE_100004624831660)-[:RATED {rating:[3]}]->(AFewGoodMen),
 (PROFILE_100004624831661)-[:RATED {rating:[4]}]->(AFewGoodMen),
 (PROFILE_100004624831662)-[:RATED {rating:[5]}]->(AFewGoodMen),
 (PROFILE_100004624831663)-[:RATED {rating:[1]}]->(AFewGoodMen)
+CREATE 
+(AFewGoodMen)-[:RATED_BY {rating:[3]}]->(PROFILE_100004624831660),
+(AFewGoodMen)-[:RATED_BY {rating:[4]}]->(PROFILE_100004624831661),
+(AFewGoodMen)-[:RATED_BY {rating:[5]}]->(PROFILE_100004624831662),
+(AFewGoodMen)-[:RATED_BY {rating:[1]}]->(PROFILE_100004624831663)
 
 CREATE (TopGun:Movie {title:"Top Gun", released:1986, tagline:'I feel the need, the need for speed.'})
-CREATE (PROFILE_100004624831662)-[:RATED {rating:[5]}]->(TopGun),
+CREATE 
+(PROFILE_100004624831662)-[:RATED {rating:[5]}]->(TopGun),
 (PROFILE_100004624831663)-[:RATED {rating:[1]}]->(TopGun)
+CREATE 
+(TopGun)-[:RATED_BY {rating:[5]}]->(PROFILE_100004624831662),
+(TopGun)-[:RATED_BY {rating:[1]}]->(PROFILE_100004624831663)
 
 CREATE CONSTRAINT ON (m:Movie) ASSERT m.title IS UNIQUE;
 CREATE CONSTRAINT ON (p:Profile) ASSERT p.profileUri IS UNIQUE;
