@@ -33,7 +33,7 @@ const addRating = async (session, movieId, profileUri, rating) => {
         debug('add Rating result:', result)
         const singleRecord = result.records[0]
         const node = singleRecord.get(0)
-
+        // TODO recalculate average rating and store as property of Movie Node
         return node.properties.id;
     } finally {
 
